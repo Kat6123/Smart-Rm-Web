@@ -2,5 +2,8 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
+from .models import Trash, Task, Info
 
-# Register your models here.
+admin.site.register(Trash)
+admin.site.register(Task)
+admin.site.register(Info)

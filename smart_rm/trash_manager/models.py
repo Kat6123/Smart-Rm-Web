@@ -34,7 +34,7 @@ class Task(models.Model):
     trash = models.ForeignKey(Trash, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Info(models.Model):
