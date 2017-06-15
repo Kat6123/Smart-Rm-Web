@@ -1,0 +1,11 @@
+{% extends 'trash_manager/base.html' %}
+{% block content %}
+{% for trash in trashs %}
+      <div class="post">
+          <div class="date">
+              {{ trash.location }}
+          </div>
+          <h1><a href="{% url 'trash_detail' trash_name=trash.name %}">{{ trash.name }}</a></h1>
+      </div>
+  {% endfor %}
+{% endblock content %}

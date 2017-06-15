@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import os
 from django.db import models
 
 REMOVE_MODES = (
@@ -17,7 +18,10 @@ TASK_STATUS = (
 
 class Trash(models.Model):
     name = models.CharField(max_length=30, unique=True)
-    location = models.FilePathField(path='/', default="/")
+    location = models.CharField(
+        max_length=30,
+        default=os.path.expanduser("~/.local/share/trash"),
+    )
     remove_mode = models.CharField(
         max_length=1, choices=REMOVE_MODES, default="F"
     )
