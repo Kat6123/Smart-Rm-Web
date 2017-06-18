@@ -1,0 +1,12 @@
+{% extends 'trash_manager/base.html' %}
+
+{% block content %}
+{% for trash_info in info %}
+      <div class="post">
+          <div class="date">
+              {{ trash_info.deletion_date }}
+          </div>
+          <h1>{{ trash_info.initial_path }}</a></h1>
+      </div>
+  {% endfor %}
+{% endblock content %}

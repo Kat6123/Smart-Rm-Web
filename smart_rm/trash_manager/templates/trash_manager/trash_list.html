@@ -1,11 +1,21 @@
-{% extends 'trash_manager/base.html' %}
-{% block content %}
-{% for trash in trashs %}
-      <div class="post">
-          <div class="date">
-              {{ trash.location }}
-          </div>
-          <h1><a href="{% url 'trash_detail' trash_name=trash.name %}">{{ trash.name }}</a></h1>
-      </div>
+{% extends 'trash_manager/table.html' %}
+
+{% block before_table %}
+  <a href="{% url 'new_trash' %}" class="btn btn-default" role="button"><span class="glyphicon glyphicon-plus"></span> Add trash</a>
+{% endblock before_table %}
+
+{% block table_head %}
+  <tr>
+    <th>Trash</th>
+    <th>Location</th>
+  </tr>
+{% endblock table_head %}
+
+{% block table_body %}
+  {% for trash in trashs %}
+      <tr>
+        <td><a href="{% url 'trash_detail' trash_name=trash.name %}">{{ trash.name }}</a></td>
+        <td>{{ trash.location }}</td>
+      </tr>
   {% endfor %}
-{% endblock content %}
+{% endblock table_body %}

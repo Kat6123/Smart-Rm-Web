@@ -1,0 +1,19 @@
+{% extends 'trash_manager/table.html' %}
+
+{% block table_head %}
+  <tr>
+    <th>Task</th>
+    <th>Trash</th>
+    <th>Status</th>
+  </tr>
+{% endblock table_head %}
+
+{% block table_body %}
+  {% for task in task_list %}
+      <tr>
+        <td>{{ task.id }}</td>
+        <td>{{ task.trash.name }}</td>
+        <td>{{ task.status }}</td>
+      </tr>
+  {% endfor %}
+{% endblock table_body %}
