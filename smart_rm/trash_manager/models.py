@@ -44,16 +44,9 @@ class Task(models.Model):
     regex = models.CharField(
         max_length=10, blank=True
     )
+    parallel_remove = models.BooleanField(default=False)
     paths = models.TextField()
+    time = models.FloatField(default=0.0)
 
     def __str__(self):
         return str(self.id)
-
-
-class Info(models.Model):
-    path = models.CharField(max_length=100)
-    path_in_trash = models.CharField(max_length=100)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.path

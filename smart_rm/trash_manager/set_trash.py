@@ -28,9 +28,12 @@ def delete_trash_by_model(trash_model):
 def restore_by_trash_model(trash_model, paths_to_restore):
     trash = get_trash_by_model(trash_model)
     res = ((os.path.basename(path) for path in paths_to_restore))
-    for i in res:
-        print i
-    return res
+    return trash.restore(res)
+
+
+def clean_by_trash_model(trash_model, paths_to_remove):
+    trash = get_trash_by_model(trash_model)
+    return trash.remove_files_from_trash_permanently(paths_to_remove)
 
 
 class Consumer(multiprocessing.Process):
@@ -115,6 +118,14 @@ def parallel_remove(trash, paths_to_remove):
         result.extend(results.get())
         num_jobs -= 1
 
-    print working_time
+    return result, working_time
 
-    return result
+
+def remove(trash, paths):
+    start = time.time()
+
+    result = trash.remove(paths)
+
+    finish = time.time()
+
+    return result, finish - start

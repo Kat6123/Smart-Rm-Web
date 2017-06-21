@@ -1,21 +1,24 @@
 {% extends 'trash_manager/base.html' %}
 
 {% block content %}
-  {% block before_table %}
-  {% endblock before_table %}
+  <form method="POST">
+      {%csrf_token%}
 
-  <table class="table table-striped">
-    <thead>
-      {% block table_head %}
-      {% endblock table_head %}
-    </thead>
-    <tbody>
-      {% block table_body %}
-      {% endblock table_body %}
-    </tbody>
-  </table>
+      {% block before_table %}
+      {% endblock before_table %}
 
-  {% block after_table %}
-  {% endblock after_table %}
+      <table class="table table-striped">
+        <thead>
+          {% block table_head %}
+          {% endblock table_head %}
+        </thead>
+        <tbody>
+          {% block table_body %}
+          {% endblock table_body %}
+        </tbody>
+      </table>
 
+      {% block after_table %}
+      {% endblock after_table %}
+  </form>
 {% endblock content %}

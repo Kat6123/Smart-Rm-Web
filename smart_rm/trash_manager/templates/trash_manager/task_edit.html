@@ -1,12 +1,8 @@
-{% extends 'trash_manager/base.html' %}
+{% extends 'trash_manager/settings.html' %}
 
 {% block content %}
-    <h1>New task</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-        {% if form.instance.id %}
-          <button class="save btn btn-default"><a href="{% url 'task_detail' pk=form.instance.id %}" class="top-menu">Run</a></button>
-        {% endif %}
-    </form>
+  {{block.super}}
+      {% if form.instance.id and form.instance.status != "C" %}
+        <button class="save btn btn-default"><a href="{% url 'task_edit' pk=form.instance.id %}" class="top-menu">Run</a></button>
+      {% endif %}
 {% endblock %}

@@ -1,9 +1,7 @@
 {% extends 'trash_manager/table.html' %}
 
 {% block left_sidebar %}
-  <a href="{% url 'new_task' %}" class="btn btn-default" role="button">Add task</a>
-  <a href="{% url 'delete_task' %}" class="btn btn-default" role="button">Delete task</a>
-  <a href="{% url 'run_task' %}" class="btn btn-default" role="button">Run task</a>
+  <a href="{% url 'new_task' %}" class="btn btn-default" role="button"><span class="glyphicon glyphicon-plus"> Add task</a>
 {% endblock %}
 
 {% block active_navbar %}
@@ -14,18 +12,30 @@
 
 {% block table_head %}
   <tr>
+    <td></td>
     <th>Task</th>
     <th>Trash</th>
     <th>Status</th>
+    <td></td>
   </tr>
 {% endblock table_head %}
 
 {% block table_body %}
   {% for task in task_list %}
       <tr>
-        <td><a href="{% url 'task_detail' pk=task.id %}">{{ task.id }}</a></td>
+        <td><input type="checkbox" name="choices" value="{{task.id}}"></input></td>
+        <td><a href="{% url 'task_edit' pk=task.id %}">{{ task.id }}</a></td>
         <td>{{ task.trash.name }}</td>
         <td>{{ task.status }}</td>
+        <td>
+          {% if task.status == "W" %}
+            <a href="{% url 'run_task' pk=task.id%}"><span class="glyphicon glyphicon-play"> Run</span></a>
+          {% endif %}
+        </td>
       </tr>
   {% endfor %}
 {% endblock table_body %}
+
+{% block after_table %}
+  <button type="submit" class="btn btn-default" name="delete">Delete</button>
+{% endblock %}

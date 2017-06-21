@@ -1,0 +1,33 @@
+{% extends 'trash_manager/table.html' %}
+
+{% block active_navbar %}
+  <li><a href="{% url 'trash_list' %}">Trashs</a></li>
+  <li><a href="{% url 'task_list' %}">Tasks</a></li>
+  <li class="active"><a href="{% url 'history' %}">History</a></li>
+{% endblock %}
+
+{% block before_table %}
+  <div>
+      <p><button type="submit" class="btn" name="clean">Clean history</button></p>
+  </div>
+{% endblock%}
+
+{% block table_head %}
+  <tr>
+    <th>Task</th>
+    <th>Trash</th>
+    <th>Deletion time</th>
+    <th>Status</th>
+  </tr>
+{% endblock table_head %}
+
+{% block table_body %}
+  {% for task in task_list %}
+      <tr>
+        <td><a href="{% url 'task_edit' pk=task.id %}">{{ task.id }}</a></td>
+        <td>{{ task.trash.name }}</td>
+        <td>{{ task.time }}</td>
+        <td>{{ task.status }}</td>
+      </tr>
+  {% endfor %}
+{% endblock table_body %}
