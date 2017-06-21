@@ -1,21 +1,32 @@
 {% extends 'trash_manager/table.html' %}
 
-{% block before_table %}
+{% block active_navbar %}
+  <li class="active"><a href="{% url 'trash_list' %}">Trashs</a></li>
+  <li><a href="{% url 'task_list' %}">Tasks</a></li>
+  <li><a href="{% url 'history' %}">History</a></li>
+{% endblock %}
+
+{% block left_sidebar %}
   <a href="{% url 'new_trash' %}" class="btn btn-default" role="button"><span class="glyphicon glyphicon-plus"></span> Add trash</a>
-{% endblock before_table %}
+{% endblock left_sidebar %}
 
 {% block table_head %}
   <tr>
     <th>Trash</th>
     <th>Location</th>
+    <th></th>
   </tr>
 {% endblock table_head %}
 
 {% block table_body %}
   {% for trash in trashs %}
       <tr>
-        <td><a href="{% url 'trash_detail' trash_name=trash.name %}">{{ trash.name }}</a></td>
+        <td><a href="{% url 'trash_content' trash_name=trash.name %}">{{ trash.name }}</a></td>
         <td>{{ trash.location }}</td>
+        <td>
+          <a href="{% url 'trash_settings' trash_name=trash.name%}"><span class="glyphicon glyphicon-pencil"></span> Edit </a>
+          <a href="{% url 'delete_trash' trash_name=trash.name%}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+        </td>
       </tr>
   {% endfor %}
 {% endblock table_body %}

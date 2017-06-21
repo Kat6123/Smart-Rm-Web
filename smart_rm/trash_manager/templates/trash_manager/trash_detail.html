@@ -1,9 +1,0 @@
-{% extends 'trash_manager/base.html' %}
-
-{% block content %}
-    <div class="post">
-        <a class="btn btn-default" href="{% url 'trash_settings' trash_name=trash.name %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <h1>{{ trash.name }}</h1>
-        <p>{{ trash.location }}</p>
-    </div>
-{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'trash_manager/table.html' %}
+
+{% block left_sidebar %}
+<div>
+    <a href="{% url 'new_task' %}" class="btn btn-default" role="button">Add task</a>
+</div>
+<div>
+    <a href="{% url 'clean_trash' trash_name=trash_name %}" class="btn btn-default" role="button">Clean</a>
+</div>
+<div class="">
+    <a href="{% url 'restore_from_trash' trash_name=trash_name %}" class="btn btn-default" role="button">Restore</a>
+</div>
+{% endblock %}
+
+{% block content %}
+  <form method="POST">
+      {%csrf_token%}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Initial path</th>
+            <th>Deletion Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for trash_info in info %}
+              <tr>
+                <td><input type="checkbox" name="choices" value="{{trash_info.path_in_trash}}"></input></td>
+                <td>{{ trash_info.initial_path }}</td>
+                <td>{{ trash_info.deletion_date }}</td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-default" name="clean">Clean</button>
+      <button type="submit" class="btn btn-default" name="restore">Restore</button>
+  </form>
+{% endblock %}
+
+{% block right_sidebar %}
+  <a href="{% url 'task_list' trash_name=trash_name %}" class="btn btn-default" role="button">Tasks</a>
+  <a href="{% url 'trash_settings' trash_name=trash_name %}" class="btn btn-default" role="button">Settings</a>
+{% endblock %}

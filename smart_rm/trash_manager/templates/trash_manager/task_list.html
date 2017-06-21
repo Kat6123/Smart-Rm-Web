@@ -1,5 +1,17 @@
 {% extends 'trash_manager/table.html' %}
 
+{% block left_sidebar %}
+  <a href="{% url 'new_task' %}" class="btn btn-default" role="button">Add task</a>
+  <a href="{% url 'delete_task' %}" class="btn btn-default" role="button">Delete task</a>
+  <a href="{% url 'run_task' %}" class="btn btn-default" role="button">Run task</a>
+{% endblock %}
+
+{% block active_navbar %}
+  <li><a href="{% url 'trash_list' %}">Trashs</a></li>
+  <li class="active"><a href="{% url 'task_list' %}">Tasks</a></li>
+  <li><a href="{% url 'history' %}">History</a></li>
+{% endblock %}
+
 {% block table_head %}
   <tr>
     <th>Task</th>
@@ -11,7 +23,7 @@
 {% block table_body %}
   {% for task in task_list %}
       <tr>
-        <td>{{ task.id }}</td>
+        <td><a href="{% url 'task_detail' pk=task.id %}">{{ task.id }}</a></td>
         <td>{{ task.trash.name }}</td>
         <td>{{ task.status }}</td>
       </tr>
