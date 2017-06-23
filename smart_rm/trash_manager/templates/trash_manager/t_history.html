@@ -1,16 +1,10 @@
-{% extends 'trash_manager/table.html' %}
+{% extends 'trash_manager/base_table.html' %}
 
 {% block active_navbar %}
   <li><a href="{% url 'trash_list' %}">Trashs</a></li>
   <li><a href="{% url 'task_list' %}">Tasks</a></li>
   <li class="active"><a href="{% url 'history' %}">History</a></li>
 {% endblock %}
-
-{% block before_table %}
-  <div>
-      <p><button type="submit" class="btn" name="clean">Clean history</button></p>
-  </div>
-{% endblock%}
 
 {% block table_head %}
   <tr>
@@ -31,3 +25,7 @@
       </tr>
   {% endfor %}
 {% endblock table_body %}
+
+{% block after_table %}
+  <button type="submit" class="btn btn-default button" name="clean">Clean</button>
+{% endblock %}

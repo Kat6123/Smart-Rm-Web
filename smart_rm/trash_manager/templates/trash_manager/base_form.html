@@ -1,0 +1,21 @@
+{% extends 'trash_manager/base.html' %}
+
+{% block content %}
+  {% block form_header %}
+    <h2>{{action}}</h2>
+  {% endblock %}
+
+  <form method="POST">
+      {%csrf_token%}
+
+      {% block form %}
+          {{form.as_p}}
+      {% endblock %}
+
+      {% block form_buttons %}
+        <button type="submit" class="btn btn-default" name="close" value="">Save</button>
+        <button type="submit" class="btn btn-default" name="continue" value="">Save and continue</button>
+      {% endblock %}
+  </form>
+
+{% endblock %}

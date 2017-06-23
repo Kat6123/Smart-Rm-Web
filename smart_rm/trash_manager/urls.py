@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.trash_list, name='trash_list'),
 
+    url(r'^filesystem/$', views.filesystem, name='filesystem'),
+
     url(r'^history/$', views.history, name='history'),
 
     url(r'^new/$', views.new_trash, name='new_trash'),

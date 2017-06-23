@@ -1,0 +1,9 @@
+{% extends 'trash_manager/base_form.html' %}
+
+{% block form_buttons %}
+  {{ block.super }}
+  {% if form.instance.id and form.instance.status != "C" %}
+    <button class="save btn btn-default"><a href="{% url 'task_edit' pk=form.instance.id %}" class="top-menu">Run</a></button>
+    <button class="save btn btn-default" type='submit' name="add_paths">Add paths</button>
+  {% endif %}
+{% endblock %}

@@ -1,8 +1,0 @@
-{% extends 'trash_manager/settings.html' %}
-
-{% block content %}
-  {{block.super}}
-      {% if form.instance.id and form.instance.status != "C" %}
-        <button class="save btn btn-default"><a href="{% url 'task_edit' pk=form.instance.id %}" class="top-menu">Run</a></button>
-      {% endif %}
-{% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'trash_manager/table.html' %}
+{% extends 'trash_manager/base_table.html' %}
 
 {% block active_navbar %}
   <li class="active"><a href="{% url 'trash_list' %}">Trashs</a></li>
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block left_sidebar %}
-  <p><a href="{% url 'new_trash' %}" class="btn btn-default" role="button"><span class="glyphicon glyphicon-plus"></span> Add trash</a>
+  <a href="{% url 'new_trash' %}" class="btn btn-default button" role="button">Add trash</a>
 {% endblock left_sidebar %}
 
 {% block table_head %}
@@ -26,12 +26,12 @@
         <td><a href="{% url 'trash_content' trash_name=trash.name %}">{{ trash.name }}</a></td>
         <td>{{ trash.location }}</td>
         <td>
-          <a href="{% url 'trash_settings' trash_name=trash.name%}"><span class="glyphicon glyphicon-cog"></span></a>
+          <a href="{% url 'trash_settings' trash_name=trash.name%}"><span class="glyphicon glyphicon-cog"></span>  Edit</a>
         </td>
       </tr>
   {% endfor %}
 {% endblock table_body %}
 
 {% block after_table %}
-  <button type="submit" class="btn btn-default" name="delete">Delete</button>
+  <button type="submit" class="btn btn-default button" name="delete">Delete</button>
 {% endblock %}
