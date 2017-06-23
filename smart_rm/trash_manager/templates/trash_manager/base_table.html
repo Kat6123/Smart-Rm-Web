@@ -1,6 +1,10 @@
 {% extends 'trash_manager/base.html' %}
 
 {% block content %}
+  <div class="container text-left">
+    {% block message %}
+    {% endblock %}
+  </div>
   <form method="POST">
       {%csrf_token%}
 

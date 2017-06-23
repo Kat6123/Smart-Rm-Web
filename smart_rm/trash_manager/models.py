@@ -41,9 +41,7 @@ class Task(models.Model):
         max_length=10, choices=REMOVE_MODES, default="F"
     )
     dry_run = models.BooleanField(default=False)
-    regex = models.CharField(
-        max_length=10, blank=True
-    )
+    regex = models.CharField(max_length=30, blank=True, default="")
     parallel_remove = models.BooleanField(default=False)
     paths = models.TextField()
     time = models.FloatField(default=0.0)

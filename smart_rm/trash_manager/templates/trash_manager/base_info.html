@@ -1,10 +1,5 @@
 {% extends 'trash_manager/base_table.html' %}
 
-
-{% block left_sidebar %}
-    <a href="{% url 'task_list' %}" class="btn btn-default button" role="button"><span class="glyphicon glyphicon-remove"></span> Close</a>
-{% endblock %}
-
 {% block table_head %}
   <tr>
     <th>Path in trash</th>
@@ -31,7 +26,4 @@
         {% endif %}
       </tr>
   {% endfor %}
-  <div>
-      <a href="{% url 'task_list' %}" class="btn btn-default" role="button">Close</a>
-  </div>
 {% endblock table_body %}

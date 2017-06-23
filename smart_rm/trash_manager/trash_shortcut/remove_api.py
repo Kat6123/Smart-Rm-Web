@@ -26,19 +26,20 @@ class Consumer(multiprocessing.Process):
 
 
 class Task(object):
-    def __init__(self, trash, items_to_remove, lock_trash, lock_remove):
+    def __init__(self, trash, items_to_remove, lock_trash, lock_remove, regex):
         self.trash = trash
         self.items = items_to_remove
         self.lock_trash = lock_trash
         self.lock_remove = lock_remove
+        self.regex = regex
 
     def __call__(self):
         return self.trash.synchronized_remove(
-            self.items, self.lock_trash, self.lock_remove
+            self.items, self.lock_trash, self.lock_remove, self.regex
         )
 
 
-def parallel_remove(trash, paths_to_remove):
+def parallel_remove(trash, paths_to_remove, regex):
     num_jobs = 0
 
     lock_trash = multiprocessing.Manager().Lock()
@@ -62,7 +63,8 @@ def parallel_remove(trash, paths_to_remove):
             Task(
                 trash,
                 paths_to_remove[start_pos:start_pos + MAX_ITEMS_PER_TASK],
-                lock_trash, lock_remove)
+                lock_trash, lock_remove,
+                regex)
             )
         num_jobs += 1
 
@@ -81,9 +83,9 @@ def parallel_remove(trash, paths_to_remove):
     return result, working_time
 
 
-def remove(trash, paths):
+def remove(trash, paths, regex):
     start = time.time()
-    result = trash.remove(paths)
+    result = trash.remove(paths, regex)
     finish = time.time()
 
     return result, finish - start

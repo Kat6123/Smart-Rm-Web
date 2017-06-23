@@ -1,0 +1,11 @@
+{% extends 'trash_manager/base_info.html' %}
+
+{% block message %}
+  <div class="container-fluid well">
+      <h3> Trash '{{trash.name}}': {{action}}</h3>
+  </div>
+{% endblock %}
+
+{% block left_sidebar %}
+    <a href="{% url 'trash_content' trash_name=trash.name%}" class="btn btn-default button" role="button"><span class="glyphicon glyphicon-remove"></span> Close</a>
+{% endblock %}

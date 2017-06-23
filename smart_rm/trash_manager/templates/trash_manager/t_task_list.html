@@ -24,7 +24,7 @@
   {% for task in task_list %}
       <tr>
         <td><input type="checkbox" name="choices" value="{{task.id}}"></input></td>
-        <td><a href="{% url 'task_edit' pk=task.id %}">{{ task.id }}</a></td>
+        <td><a href="{% url 'task_settings' pk=task.id %}">{{ task.id }}</a></td>
         <td>{{ task.trash.name }}</td>
         <td>{{ task.status }}</td>
         <td>

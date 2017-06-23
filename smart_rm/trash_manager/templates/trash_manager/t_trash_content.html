@@ -1,7 +1,6 @@
 {% extends 'trash_manager/base_table.html' %}
 
 {% block left_sidebar %}
-    <p><a href="{% url 'new_task' %}" class="btn btn-default button" role="button">Add task</a></p>
     <p><a href="{% url 'task_list' trash_name=trash_name %}" class="btn btn-default button" role="button">Tasks</a></p>
     <p><a href="{% url 'trash_settings' trash_name=trash_name %}" class="btn btn-default button" role="button">Settings</a></p>
 {% endblock %}
