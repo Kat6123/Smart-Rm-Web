@@ -1,11 +1,13 @@
 {% extends 'trash_manager/base_table.html' %}
 
 {% block table_head %}
-  <tr>
-    <th>Path in trash</th>
-    <th>Deletion Date</th>
-    <th>Size</th>
-  </tr>
+  {% if info|length %}
+    <tr>
+      <th>Path in trash</th>
+      <th>Deletion Date</th>
+      <th>Size</th>
+    </tr>
+  {% endif %}
 {% endblock table_head %}
 
 {% block table_body %}
@@ -14,7 +16,7 @@
         {% if trash_info.errors %}
           <td>
             {% for error in trash_info.errors %}
-              <div class="alert alert-danger">
+              <div class="container-fluid alert alert-danger">
                 <strong>Error!</strong> {{error}}
               </div>
             {% endfor %}
@@ -25,5 +27,7 @@
           <td>{{ trash_info.size|filesizeformat }}</td>
         {% endif %}
       </tr>
+  {% empty %}
+    <h4>Oops! It's empty!</h4>
   {% endfor %}
 {% endblock table_body %}

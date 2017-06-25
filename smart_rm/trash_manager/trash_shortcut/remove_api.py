@@ -63,8 +63,7 @@ def parallel_remove(trash, paths_to_remove, regex):
             Task(
                 trash,
                 paths_to_remove[start_pos:start_pos + MAX_ITEMS_PER_TASK],
-                lock_trash, lock_remove,
-                regex)
+                lock_trash, lock_remove, regex)
             )
         num_jobs += 1
 

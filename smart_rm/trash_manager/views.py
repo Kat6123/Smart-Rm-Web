@@ -212,7 +212,10 @@ def run_task(request, pk):
 
         # trash = get_trash_by_model(task.trash)
         trash = get_trash_by_task(task)
-        paths = task.paths.split(' ')
+        if task.paths:
+            paths = task.paths.split(' ')
+        else:
+            paths = []
         if task.parallel_remove:
             result, task.time = parallel_remove(trash, paths, task.regex)
         else:
