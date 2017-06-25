@@ -7,22 +7,26 @@
 {% endblock %}
 
 {% block table_head %}
-  <tr>
-    <th>Task</th>
-    <th>Trash</th>
-    <th>Deletion time</th>
-    <th>Status</th>
-  </tr>
+  {% if task_list|length %}
+    <tr>
+      <th>Task</th>
+      <th>Trash</th>
+      <th>Deletion time</th>
+      <th>Status</th>
+    </tr>
+  {% endif %}
 {% endblock table_head %}
 
 {% block table_body %}
   {% for task in task_list %}
       <tr>
-        <td><a href="{% url 'task_settings' pk=task.id %}">{{ task.id }}</a></td>
+        <td>{{ task.id }}</a></td>
         <td>{{ task.trash.name }}</td>
         <td>{{ task.time }}</td>
         <td>{{ task.status }}</td>
       </tr>
+  {% empty %}
+  <h3> You have clear history. Hmm, suspiciously! </h3>
   {% endfor %}
 {% endblock table_body %}
 

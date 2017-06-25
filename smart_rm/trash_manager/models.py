@@ -24,11 +24,14 @@ class Trash(models.Model):
         default=os.path.expanduser("~/.local/share/"),
     )
     remove_mode = models.CharField(
-        max_length=10, choices=REMOVE_MODES, default="F"
+        max_length=10, choices=REMOVE_MODES, default="R"
     )
     dry_run = models.BooleanField(default=False)
 
     def __str__(self):
+        return self.name
+
+    def __unicode__(self):
         return self.name
 
 
@@ -38,12 +41,12 @@ class Task(models.Model):
     )
     trash = models.ForeignKey(Trash, on_delete=models.CASCADE)
     remove_mode = models.CharField(
-        max_length=10, choices=REMOVE_MODES, default="F"
+        max_length=10, choices=REMOVE_MODES, default="R"
     )
     dry_run = models.BooleanField(default=False)
     regex = models.CharField(max_length=30, blank=True, default="")
     parallel_remove = models.BooleanField(default=False)
-    paths = models.TextField()
+    paths = models.TextField(blank=True)
     time = models.FloatField(default=0.0)
 
     def __str__(self):

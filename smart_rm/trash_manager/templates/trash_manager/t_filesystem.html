@@ -1,7 +1,7 @@
 {% extends 'trash_manager/base_table.html' %}
 
 {% block left_sidebar %}
-  <a href="/task/{{id}}/settings/?add=paths" class="btn btn-default button" role="button">Close</a>
+  <a href="{{request.session.prev}}?add=paths" class="btn btn-default button" role="button">Close</a>
 {% endblock %}
 
 {% block before_table %}
@@ -12,7 +12,7 @@
 
 {% block table_head %}
   <tr>
-    <th></th>
+    <th><input type="checkbox" name="all" value=""></input></th>
     <th>Name</th>
   </tr>
 {% endblock table_head %}
