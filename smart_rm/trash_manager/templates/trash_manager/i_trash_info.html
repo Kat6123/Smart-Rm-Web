@@ -1,11 +1,12 @@
 {% extends 'trash_manager/base_info.html' %}
+{% load i18n %}
 
 {% block message %}
   <div class="container-fluid well">
-      <h3> Trash '{{trash.name}}': {{action}}</h3>
+      <h3> {% trans "Trash" %} '{{trash.name}}': {{action}}</h3>
   </div>
 {% endblock %}
 
 {% block left_sidebar %}
-    <a href="{% url 'trash_content' trash_name=trash.name%}" class="btn btn-default button" role="button">Close</a>
+    <a href="{% url 'trash_content' trash_name=trash.name%}" class="btn btn-default button" role="button">{% trans "Close" %}</a>
 {% endblock %}

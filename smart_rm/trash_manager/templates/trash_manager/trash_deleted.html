@@ -1,7 +1,8 @@
 {% extends 'trash_manager/t_trash_list.html' %}
+{% load i18n %}
 
 {% block message %}
   <div class="alert alert-success">
-    <strong>Deleted successfully!</strong>
+    <strong>{% trans "Deleted successfully" %}!</strong>
   </div>
 {% endblock %}

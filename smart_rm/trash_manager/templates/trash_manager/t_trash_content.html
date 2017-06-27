@@ -1,16 +1,17 @@
 {% extends 'trash_manager/base_table.html' %}
+{% load i18n %}
 
 {% block left_sidebar %}
-    <p><a href="{% url 'task_list' trash_name=trash_name %}" class="btn btn-default button" role="button">Tasks</a></p>
-    <p><a href="{% url 'trash_settings' trash_name=trash_name %}" class="btn btn-default button" role="button">Settings</a></p>
+    <p><a href="{% url 'task_list' trash_name=trash_name %}" class="btn btn-default button" role="button">{% trans "Tasks" %}</a></p>
+    <p><a href="{% url 'trash_settings' trash_name=trash_name %}" class="btn btn-default button" role="button">{% trans "Settings" %}</a></p>
 {% endblock %}
 
 {% block table_head %}
   <tr>
     <th><input type="checkbox" name="all" value=""></input></th>
-    <th>Initial path</th>
-    <th>Deletion Date</th>
-    <th>Size</th>
+    <th>{% trans "Initial path" %}</th>
+    <th>{% trans "Deletion Date" %}</th>
+    <th>{% trans "Size" %}</th>
   </tr>
 {% endblock table_head %}
 
@@ -27,9 +28,9 @@
 
 {% block after_table %}
   <div class="col-md-2">
-    <button type="submit" class="btn btn-default button" name="clean">Clean</button>
+    <button type="submit" class="btn btn-default button" name="clean">{% trans "Clean" %}</button>
   </div>
   <div class="col-md-2">
-    <button type="submit" class="btn btn-default button" name="restore">Restore</button>
+    <button type="submit" class="btn btn-default button" name="restore">{% trans "Restore" %}</button>
   </div>
 {% endblock after_table %}

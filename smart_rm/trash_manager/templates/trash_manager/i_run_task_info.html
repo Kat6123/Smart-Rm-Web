@@ -1,16 +1,17 @@
 {% extends 'trash_manager/base_info.html' %}
+{% load i18n %}
 
 {% block message %}
   <div class="container-fluid well">
-      <h3>Task №{{task.id}}</h3>
+      <h3>{% trans "Task" %} №{{task.id}}</h3>
       {% if info|length %}
-        <h4>Time execution: {{task.time}}</h4>
+        <h4>{% trans "Time execution" %} {{task.time}}</h4>
       {% else %}
-        <h4>There were not files to delete.</h4>
+        <h4>{% trans "There were not files to delete" %}.</h4>
       {% endif %}
   </div>
 {% endblock %}
 
 {% block left_sidebar %}
-    <a href="{% url 'task_list' %}" class="btn btn-default button" role="button">Close</a>
+    <a href="{% url 'task_list' %}" class="btn btn-default button" role="button">{% trans "Close" %}</a>
 {% endblock %}
