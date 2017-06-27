@@ -5,15 +5,15 @@ import os
 from django.db import models
 
 REMOVE_MODES = (
-    ('F', 'file'),
-    ('D', 'directory'),
-    ('R', 'recursive')
+    ('F', _('file')),
+    ('D', _('directory')),
+    ('R', _('recursive'))
 )
 
 TASK_STATUS = (
-    ('R', 'running'),
-    ('C', 'completed'),
-    ('W', 'waiting')
+    ('R', _('running')),
+    ('C', _('completed')),
+    ('W', _('waiting'))
 )
 
 
@@ -39,17 +39,24 @@ class Trash(models.Model):
 
 class Task(models.Model):
     status = models.CharField(
-        max_length=10, choices=TASK_STATUS, default="W"
+        max_length=10, choices=TASK_STATUS, default="W",
+        verbose_name=_('Status')
     )
-    trash = models.ForeignKey(Trash, on_delete=models.CASCADE)
+    trash = models.ForeignKey(
+        Trash, on_delete=models.CASCADE, verbose_name=_('Trash'))
     remove_mode = models.CharField(
-        max_length=10, choices=REMOVE_MODES, default="R"
+        max_length=10, choices=REMOVE_MODES, default="R",
+        verbose_name=_('Remove mode')
     )
-    dry_run = models.BooleanField(default=False)
-    regex = models.CharField(max_length=30, blank=True, default="")
-    parallel_remove = models.BooleanField(default=False)
-    paths = models.TextField(blank=True)
-    time = models.FloatField(default=0.0)
+    dry_run = models.BooleanField(default=False, verbose_name=_('Dry run'))
+    regex = models.CharField(
+        max_length=30, blank=True, default="",
+        verbose_name=_('Regex'))
+    parallel_remove = models.BooleanField(
+        default=False,
+        verbose_name=_('Parallel remove'))
+    paths = models.TextField(blank=True, verbose_name=_('Paths'))
+    time = models.FloatField(default=0.0, verbose_name=_('Time'))
 
     def __str__(self):
         return str(self.id)

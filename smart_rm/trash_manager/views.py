@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import os
 import urllib
 from django.http import HttpResponseRedirect
-from django.conf import settings
+from django.utils.translation import ugettext as _
 from django.utils import translation
 from django.core.urlresolvers import reverse
 from django.db.models import Q
@@ -122,7 +122,7 @@ def new_trash(request):
     else:
         form = TrashNewForm()
     return render(request, 'trash_manager/f_trash_settings.html',
-                  {'action': 'New trash', 'form': form})
+                  {'action': _('New trash'), 'form': form})
 
 
 def new_task(request):
@@ -156,7 +156,7 @@ def new_task(request):
                 return redirect(reverse('filesystem') + "?%s" % params)
 
     return render(request, 'trash_manager/f_task_settings.html',
-                  {'form': form, 'action': 'New task'})
+                  {'form': form, 'action': _('New task')})
 
 
 def trash_settings(request, trash_name):
@@ -170,7 +170,7 @@ def trash_settings(request, trash_name):
     else:
         form = TrashEditForm(instance=trash)
     return render(request, 'trash_manager/f_trash_settings.html',
-                  {'action': 'Edit trash', 'form': form})
+                  {'action': _('Edit trash'), 'form': form})
 
 
 def task_settings(request, pk):
@@ -201,7 +201,7 @@ def task_settings(request, pk):
                 return redirect(reverse('filesystem') + "?%s" % params)
 
     return render(request, 'trash_manager/f_task_settings.html',
-                  {'form': form, 'action': 'Edit task'})
+                  {'form': form, 'action': _('Edit task')})
 
 
 def run_task(request, pk):
@@ -276,9 +276,6 @@ def lang(request, code):
     next = request.META.get('HTTP_REFERER', '/')
     response = HttpResponseRedirect(next)
     if code and translation.check_for_language(code):
-        if hasattr(request, 'session'):
-            request.session[translation.LANGUAGE_SESSION_KEY] = code
-        else:
-            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, code)
+        request.session[translation.LANGUAGE_SESSION_KEY] = code
         translation.activate(code)
     return response

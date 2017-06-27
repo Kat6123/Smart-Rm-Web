@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-27 18:06+0300\n"
+"POT-Creation-Date: 2017-06-27 20:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,30 @@ msgstr "Русский"
 msgid "English"
 msgstr "Английский"
 
+#: trash_manager/models.py:8
+msgid "file"
+msgstr "файл"
+
+#: trash_manager/models.py:9
+msgid "directory"
+msgstr "директория"
+
+#: trash_manager/models.py:10
+msgid "recursive"
+msgstr "рекурсивно"
+
+#: trash_manager/models.py:14
+msgid "running"
+msgstr "выполняется"
+
+#: trash_manager/models.py:15
+msgid "completed"
+msgstr "завершен"
+
+#: trash_manager/models.py:16
+msgid "waiting"
+msgstr "ожидание"
+
 #: trash_manager/models.py:21
 #: trash_manager/templates/trash_manager/t_filesystem.html:17
 msgid "Name"
@@ -38,13 +62,40 @@ msgstr "Имя"
 msgid "Location"
 msgstr "Расположение"
 
-#: trash_manager/models.py:29
+#: trash_manager/models.py:29 trash_manager/models.py:49
 msgid "Remove mode"
 msgstr "Режим удаления"
 
-#: trash_manager/models.py:31
+#: trash_manager/models.py:31 trash_manager/models.py:51
 msgid "Dry run"
 msgstr "Пробный режим"
+
+#: trash_manager/models.py:43
+#: trash_manager/templates/trash_manager/t_history.html:10
+#: trash_manager/templates/trash_manager/t_task_list.html:13
+msgid "Status"
+msgstr "Статус"
+
+#: trash_manager/models.py:46
+#: trash_manager/templates/trash_manager/i_trash_info.html:6
+#: trash_manager/templates/trash_manager/t_history.html:8
+#: trash_manager/templates/trash_manager/t_task_list.html:12
+#: trash_manager/templates/trash_manager/t_trash_list.html:11
+msgid "Trash"
+msgstr "Корзина"
+
+#: trash_manager/models.py:54
+msgid "Regex"
+msgstr "Регулярное выражение"
+
+#: trash_manager/models.py:57
+msgid "Parallel remove"
+msgstr "Параллельное удаление"
+
+#: trash_manager/models.py:58
+#: trash_manager/templates/trash_manager/f_task_settings.html:6
+msgid "Paths"
+msgstr "Пути"
 
 #: trash_manager/templates/trash_manager/base.html:6
 #: trash_manager/templates/trash_manager/base.html:17
@@ -78,10 +129,8 @@ msgstr "Путь в корзине"
 
 #: trash_manager/templates/trash_manager/base_info.html:8
 #: trash_manager/templates/trash_manager/t_trash_content.html:13
-#, fuzzy
-#| msgid "Delete"
 msgid "Deletion Date"
-msgstr "Удалить"
+msgstr "Дата удаления"
 
 #: trash_manager/templates/trash_manager/base_info.html:9
 #: trash_manager/templates/trash_manager/t_trash_content.html:14
@@ -95,10 +144,6 @@ msgstr "Ошибка"
 #: trash_manager/templates/trash_manager/base_info.html:32
 msgid "Oops! It's empty!"
 msgstr "Упс! Пусто!"
-
-#: trash_manager/templates/trash_manager/f_task_settings.html:6
-msgid "Paths"
-msgstr "Пути"
 
 #: trash_manager/templates/trash_manager/f_task_settings.html:8
 #: trash_manager/templates/trash_manager/t_task_list.html:28
@@ -125,27 +170,13 @@ msgstr "Файлов для удаления не было"
 msgid "Close"
 msgstr "Закрыть"
 
-#: trash_manager/templates/trash_manager/i_trash_info.html:6
-#: trash_manager/templates/trash_manager/t_history.html:8
-#: trash_manager/templates/trash_manager/t_task_list.html:12
-#: trash_manager/templates/trash_manager/t_trash_list.html:11
-msgid "Trash"
-msgstr "Корзина"
-
 #: trash_manager/templates/trash_manager/t_filesystem.html:11
 msgid "Add"
 msgstr "Добавить"
 
 #: trash_manager/templates/trash_manager/t_history.html:9
-#, fuzzy
-#| msgid "Delete"
 msgid "Deletion time"
-msgstr "Удалить"
-
-#: trash_manager/templates/trash_manager/t_history.html:10
-#: trash_manager/templates/trash_manager/t_task_list.html:13
-msgid "Status"
-msgstr "Статус"
+msgstr "Время удаления"
 
 #: trash_manager/templates/trash_manager/t_history.html:24
 msgid "You have clear history. Hmm, suspiciously!"
@@ -192,3 +223,19 @@ msgstr "Редактировать"
 #: trash_manager/templates/trash_manager/trash_deleted.html:6
 msgid "Deleted successfully"
 msgstr "Успешно удалено"
+
+#: trash_manager/views.py:125
+msgid "New trash"
+msgstr "Новая корзина"
+
+#: trash_manager/views.py:159
+msgid "New task"
+msgstr "Новая задача"
+
+#: trash_manager/views.py:173
+msgid "Edit trash"
+msgstr "Редактировать корзину"
+
+#: trash_manager/views.py:204
+msgid "Edit task"
+msgstr "Редактирвоать задачу"
