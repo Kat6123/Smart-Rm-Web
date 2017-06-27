@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.utils.translation import ugettext_lazy as _
 import os
 from django.db import models
 
@@ -18,15 +18,17 @@ TASK_STATUS = (
 
 
 class Trash(models.Model):
-    name = models.CharField(max_length=30, unique=True)
+    name = models.CharField(max_length=30, unique=True, verbose_name=_('Name'))
     location = models.CharField(
         max_length=30,
         default=os.path.expanduser("~/.local/share/"),
+        verbose_name=_('Location')
     )
     remove_mode = models.CharField(
-        max_length=10, choices=REMOVE_MODES, default="R"
+        max_length=10, choices=REMOVE_MODES, default="R",
+        verbose_name=_('Remove mode')
     )
-    dry_run = models.BooleanField(default=False)
+    dry_run = models.BooleanField(default=False, verbose_name=_('Dry run'))
 
     def __str__(self):
         return self.name

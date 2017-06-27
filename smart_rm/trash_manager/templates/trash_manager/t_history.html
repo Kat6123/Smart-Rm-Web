@@ -1,11 +1,5 @@
 {% extends 'trash_manager/base_table.html' %}
 
-{% block active_navbar %}
-  <li><a href="{% url 'trash_list' %}">Trashs</a></li>
-  <li><a href="{% url 'task_list' %}">Tasks</a></li>
-  <li class="active"><a href="{% url 'history' %}">History</a></li>
-{% endblock %}
-
 {% block table_head %}
   {% if task_list|length %}
     <tr>

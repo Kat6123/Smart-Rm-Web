@@ -1,20 +1,15 @@
 {% extends 'trash_manager/base_table.html' %}
-
-{% block active_navbar %}
-  <li class="active"><a href="{% url 'trash_list' %}">Trashs</a></li>
-  <li><a href="{% url 'task_list' %}">Tasks</a></li>
-  <li><a href="{% url 'history' %}">History</a></li>
-{% endblock %}
+{% load i18n %}
 
 {% block left_sidebar %}
-  <a href="{% url 'new_trash' %}" class="btn btn-default button" role="button">Add trash</a>
+  <a href="{% url 'new_trash' %}" class="btn btn-default button" role="button">{% trans "Add trash" %}</a>
 {% endblock left_sidebar %}
 
 {% block table_head %}
   <tr>
     <th><input type="checkbox" name="all" value=""></input></th>
-    <th>Trash</th>
-    <th>Location</th>
+    <th>{% trans "Trash" %}</th>
+    <th>{% trans "Location" %}</th>
     <th></th>
   </tr>
 {% endblock table_head %}
@@ -26,12 +21,12 @@
         <td><a href="{% url 'trash_content' trash_name=trash.name %}">{{ trash.name }}</a></td>
         <td>{{ trash.location }}</td>
         <td>
-          <a href="{% url 'trash_settings' trash_name=trash.name%}"><span class="glyphicon glyphicon-cog"></span>  Edit</a>
+          <a href="{% url 'trash_settings' trash_name=trash.name%}"><span class="glyphicon glyphicon-cog"></span>{% trans "Edit" %}</a>
         </td>
       </tr>
   {% endfor %}
 {% endblock table_body %}
 
 {% block after_table %}
-  <button type="submit" class="btn btn-default button" name="delete">Delete</button>
+  <button type="submit" class="btn btn-default button" name="delete">{% trans "Delete" %}</button>
 {% endblock %}

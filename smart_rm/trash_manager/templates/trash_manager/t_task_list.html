@@ -1,22 +1,16 @@
 {% extends 'trash_manager/base_table.html' %}
-
+{% load i18n %}
 {% block left_sidebar %}
-  <a href="{% url 'new_task' %}" class="btn btn-default button" role="button">Add task</a>
-{% endblock %}
-
-{% block active_navbar %}
-  <li><a href="{% url 'trash_list' %}">Trashs</a></li>
-  <li class="active"><a href="{% url 'task_list' %}">Tasks</a></li>
-  <li><a href="{% url 'history' %}">History</a></li>
+  <a href="{% url 'new_task' %}" class="btn btn-default button" role="button">{% trans "Add task" %}</a>
 {% endblock %}
 
 {% block table_head %}
   {% if task_list|length %}
   <tr>
     <th><input type="checkbox" name="all" value=""></input></th>
-    <th>Task</th>
-    <th>Trash</th>
-    <th>Status</th>
+    <th>{% trans "Task" %}</th>
+    <th>{% trans "Trash" %}</th>
+    <th>{% trans "Status" %}</th>
     <th></th>
   </tr>
   {% endif %}
@@ -31,18 +25,18 @@
           <td>{{ task.status }}</td>
           <td>
             {% if task.status == "W" %}
-              <a href="{% url 'run_task' pk=task.id%}"><span class="glyphicon glyphicon-play"></span> Run</a>
+              <a href="{% url 'run_task' pk=task.id%}"><span class="glyphicon glyphicon-play"></span>  {% trans "Run" %}</a>
             {% endif %}
           </td>
         </tr>
     {% empty %}
-      <h3>No tasks, yet. Create first!</h3>
+      <h3>{% trans "No tasks, yet. Create first!" %}</h3>
     {% endfor %}
 
 {% endblock table_body %}
 
 {% block after_table %}
   {% if task_list|length %}
-    <button type="submit" class="btn btn-default button" name="delete">Delete</button>
+    <button type="submit" class="btn btn-default button" name="delete">{% trans "Delete" %}</button>
   {% endif %}
 {% endblock %}

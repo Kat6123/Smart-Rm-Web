@@ -4,7 +4,7 @@ body, html {
 .main {
   min-height: 100%;
   position: relative;
-  background: #FFDAB9;
+  background: #FFE4C4;
   background-size: cover
 }
 .navbar {
@@ -16,7 +16,7 @@ body, html {
 
 .sidenav {
   padding-top: 20px;
-  background-color: #FFDAB9;
+  /*background-color: #FFDAB9;*/
   height: 100%;
 }
 .button {

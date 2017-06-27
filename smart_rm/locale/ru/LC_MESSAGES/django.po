@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-27 17:48+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: smart_rm/settings.py:114 trash_manager/templates/trash_manager/base.html:42
+msgid "Russian"
+msgstr "Русский"
+
+#: smart_rm/settings.py:115 trash_manager/templates/trash_manager/base.html:43
+msgid "English"
+msgstr "Английский"
+
+#: trash_manager/models.py:21
+msgid "Name"
+msgstr "Имя"
+
+#: trash_manager/models.py:25
+#: trash_manager/templates/trash_manager/t_trash_list.html:12
+msgid "Location"
+msgstr "Расположение"
+
+#: trash_manager/models.py:29
+msgid "Remove mode"
+msgstr "Режим удаления"
+
+#: trash_manager/models.py:31
+msgid "Dry run"
+msgstr "Пробный режим"
+
+#: trash_manager/templates/trash_manager/base.html:6
+#: trash_manager/templates/trash_manager/base.html:17
+msgid "Trash Manager"
+msgstr "Менеджер корзин"
+
+#: trash_manager/templates/trash_manager/base.html:22
+msgid "Trashs"
+msgstr "Корзины"
+
+#: trash_manager/templates/trash_manager/base.html:23
+msgid "Tasks"
+msgstr "Задачи"
+
+#: trash_manager/templates/trash_manager/base.html:24
+msgid "History"
+msgstr "История"
+
+#: trash_manager/templates/trash_manager/t_task_list.html:4
+msgid "Add task"
+msgstr "Добавить задачу"
+
+#: trash_manager/templates/trash_manager/t_task_list.html:11
+msgid "Task"
+msgstr "Задача"
+
+#: trash_manager/templates/trash_manager/t_task_list.html:12
+#: trash_manager/templates/trash_manager/t_trash_list.html:11
+msgid "Trash"
+msgstr "Корзина"
+
+#: trash_manager/templates/trash_manager/t_task_list.html:13
+msgid "Status"
+msgstr "Статус"
+
+#: trash_manager/templates/trash_manager/t_task_list.html:28
+msgid "Run"
+msgstr "Запустить"
+
+#: trash_manager/templates/trash_manager/t_task_list.html:33
+msgid "No tasks, yet. Create first!"
+msgstr "Задач нет. Создайте первую!"
+
+#: trash_manager/templates/trash_manager/t_task_list.html:40
+#: trash_manager/templates/trash_manager/t_trash_list.html:31
+msgid "Delete"
+msgstr "Удалить"
+
+#: trash_manager/templates/trash_manager/t_trash_list.html:5
+msgid "Add trash"
+msgstr "Добавить корзину"
+
+#: trash_manager/templates/trash_manager/t_trash_list.html:24
+msgid "Edit"
+msgstr "Редактировать"

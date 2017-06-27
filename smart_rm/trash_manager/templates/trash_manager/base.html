@@ -1,8 +1,9 @@
 {% load staticfiles %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Trash Manager</title>
+  <title>{% trans "Trash Manager" %}</title>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="{% static 'icon/favicon.ico' %}" type="image/x-icon">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,14 +14,14 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="{% url 'trash_list' %}">Trash Manager</a>
+        <a class="navbar-brand" href="{% url 'trash_list' %}">{% trans "Trash Manager" %}</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           {% block active_navbar %}
-            <li><a href="{% url 'trash_list' %}">Trashs</a></li>
-            <li><a href="{% url 'task_list' %}">Tasks</a></li>
-            <li><a href="{% url 'history' %}">History</a></li>
+            <li><a href="{% url 'trash_list' %}">{% trans "Trashs" %}</a></li>
+            <li><a href="{% url 'task_list' %}">{% trans "Tasks" %}</a></li>
+            <li><a href="{% url 'history' %}">{% trans "History" %}</a></li>
           {% endblock %}
         </ul>
       </div>
@@ -38,8 +39,8 @@
         {% endblock %}
       </div>
       <div class="col-md-2 sidenav">
-        {% block right_sidebar %}
-        {% endblock %}
+        <p><a href="{% url 'lang' code='ru'%}" class="btn btn-default button" role="button">{% trans "Russian" %}</a></p>
+        <p><a href="{% url 'lang' code='en'%}" class="btn btn-default button" role="button">{% trans "English" %}</a></p>
       </div>
     </div>
   </div>

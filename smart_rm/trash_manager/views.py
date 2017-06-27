@@ -3,6 +3,9 @@ from __future__ import unicode_literals
 
 import os
 import urllib
+from django.http import HttpResponseRedirect
+from django.conf import settings
+from django.utils import translation
 from django.core.urlresolvers import reverse
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
@@ -213,9 +216,11 @@ def run_task(request, pk):
         # trash = get_trash_by_model(task.trash)
         trash = get_trash_by_task(task)
         if task.paths:
-            paths = task.paths.split(' ')
+            print type(task.paths[0])
+            paths = [path.encode('utf-8') for path in task.paths.split(' ')]
         else:
             paths = []
+        print paths
         if task.parallel_remove:
             result, task.time = parallel_remove(trash, paths, task.regex)
         else:
@@ -265,3 +270,15 @@ def filesystem(request):
     return render(request, 'trash_manager/t_filesystem.html',
                   {'path': root_path, 'directories': directories,
                    'files': files})
+
+
+def lang(request, code):
+    next = request.META.get('HTTP_REFERER', '/')
+    response = HttpResponseRedirect(next)
+    if code and translation.check_for_language(code):
+        if hasattr(request, 'session'):
+            request.session[translation.LANGUAGE_SESSION_KEY] = code
+        else:
+            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, code)
+        translation.activate(code)
+    return response

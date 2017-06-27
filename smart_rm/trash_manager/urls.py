@@ -7,6 +7,8 @@ urlpatterns = [
     url(r'^task/$', views.task_list, name='task_list'),
     url(r'^history/$', views.history, name='history'),
 
+    url(r'^lang/(?P<code>[\w-]+)/$', views.lang, name='lang'),
+
     url(r'^new/', include([
         url(r'^trash/$', views.new_trash, name='new_trash'),
         url(r'^task/$', views.new_task, name='new_task'),
