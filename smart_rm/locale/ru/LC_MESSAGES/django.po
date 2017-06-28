@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-27 20:06+0300\n"
+"POT-Creation-Date: 2017-06-27 22:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: smart_rm/settings.py:114 trash_manager/templates/trash_manager/base.html:42
+#: smart_rm/settings.py:114 trash_manager/templates/trash_manager/base.html:43
 msgid "Russian"
 msgstr "Русский"
 
-#: smart_rm/settings.py:115 trash_manager/templates/trash_manager/base.html:43
+#: smart_rm/settings.py:115 trash_manager/templates/trash_manager/base.html:44
 msgid "English"
 msgstr "Английский"
 
@@ -115,6 +115,10 @@ msgstr "Задачи"
 msgid "History"
 msgstr "История"
 
+#: trash_manager/templates/trash_manager/base.html:25
+msgid "Info"
+msgstr "Информация"
+
 #: trash_manager/templates/trash_manager/base_form.html:17
 msgid "Save"
 msgstr "Сохранить"
@@ -170,6 +174,14 @@ msgstr "Файлов для удаления не было"
 msgid "Close"
 msgstr "Закрыть"
 
+#: trash_manager/templates/trash_manager/info.html:5
+msgid "User"
+msgstr "Пользователь"
+
+#: trash_manager/templates/trash_manager/info.html:6
+msgid "Language"
+msgstr "Язык"
+
 #: trash_manager/templates/trash_manager/t_filesystem.html:11
 msgid "Add"
 msgstr "Добавить"
@@ -224,18 +236,18 @@ msgstr "Редактировать"
 msgid "Deleted successfully"
 msgstr "Успешно удалено"
 
-#: trash_manager/views.py:125
+#: trash_manager/views.py:129
 msgid "New trash"
 msgstr "Новая корзина"
 
-#: trash_manager/views.py:159
+#: trash_manager/views.py:163
 msgid "New task"
 msgstr "Новая задача"
 
-#: trash_manager/views.py:173
+#: trash_manager/views.py:177
 msgid "Edit trash"
 msgstr "Редактировать корзину"
 
-#: trash_manager/views.py:204
+#: trash_manager/views.py:208
 msgid "Edit task"
 msgstr "Редактирвоать задачу"
