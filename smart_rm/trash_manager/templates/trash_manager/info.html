@@ -1,0 +1,7 @@
+{% extends 'trash_manager/base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <h3>{% trans 'User'%}: {{user}}</h3>
+  <h3>{% trans 'Language'%}: {{LANGUAGE_CODE}}</h3>
+{% endblock %}
