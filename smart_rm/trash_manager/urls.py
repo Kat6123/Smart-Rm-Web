@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^$', views.trash_list, name='trash_list'),
     url(r'^task/$', views.task_list, name='task_list'),
     url(r'^history/$', views.history, name='history'),
+    url(r'^info/$', views.info, name='info'),
 
     url(r'^lang/(?P<code>[\w-]+)/$', views.lang, name='lang'),
 

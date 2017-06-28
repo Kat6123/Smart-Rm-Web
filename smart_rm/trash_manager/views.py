@@ -22,6 +22,10 @@ from trash_manager.trash_shortcut.remove_api import (
 )
 
 
+def info(request):
+    return render(request, 'trash_manager/info.html')
+
+
 def trash_list(request):
     trash_name_list = Trash.objects.order_by('name')
 

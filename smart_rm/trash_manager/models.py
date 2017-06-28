@@ -56,7 +56,7 @@ class Task(models.Model):
         default=False,
         verbose_name=_('Parallel remove'))
     paths = models.TextField(blank=True, verbose_name=_('Paths'))
-    time = models.FloatField(default=0.0, verbose_name=_('Time'))
+    time = models.FloatField(default=0.0)
 
     def __str__(self):
         return str(self.id)
