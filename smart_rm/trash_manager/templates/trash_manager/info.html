@@ -1,7 +1,11 @@
 {% extends 'trash_manager/base.html' %}
+{% load staticfiles %}
 {% load i18n %}
 
 {% block content %}
   <h3>{% trans 'User'%}: {{user}}</h3>
   <h3>{% trans 'Language'%}: {{LANGUAGE_CODE}}</h3>
+  <div class="im_div">
+      <img src="{% static 'trash_manager/icon/alpaсa.jpg' %}" class="img-circle image" alt="Alpaca">
+  </div>
 {% endblock %}
